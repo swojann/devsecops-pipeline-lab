@@ -45,3 +45,23 @@ jobs:
 
       - name: Run Bandit SAST Scan
         run: bandit -r . -c bandit.yaml
+
+
+  sca:
+    name: Dependency Vulnerability Scan (SCA)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install pip-audit
+        run: pip install pip-audit
+
+      - name: Run dependency audit
+        run: pip-audit --requirement requirements.txt
+

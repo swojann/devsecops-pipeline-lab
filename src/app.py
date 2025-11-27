@@ -1,1 +1,1 @@
-print("Hello from DevSecOps Pipeline!")
+print("Hello from DevSecOps Pipeline")
